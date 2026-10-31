@@ -1,1 +1,747 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>讲章</title></head><body><h1>讲章内容待填</h1></body></html>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>基督使人纷争</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+</head><body>
+<style>
+/* 布局：可隐藏毛玻璃目录 + 满宽正文。主题意象是"刀"(太10:34)：冷钢蓝与殷红把画面一分为二，金色是"认他的人"(10:32) */
+:root{
+  --bg:#0d1117; --bg2:#151b26; --ink:#e8ecf3; --muted:#9aa6b8;
+  --steel:#8fb3d9; --blood:#e2525c; --gold:#f2c063; --leaf:#6fd6a4; --violet:#a99bff; --sea:#4fc1c9;
+  --glass:rgba(255,255,255,.055); --glass2:rgba(255,255,255,.1); --line:rgba(255,255,255,.13);
+  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.85;margin:0;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;z-index:70;background:linear-gradient(90deg,var(--steel),var(--gold),var(--blood))}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;gap:12px;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(13,17,23,.6);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--line)}
+.bar b{font-family:var(--serif);letter-spacing:.08em;font-size:15px}
+.bar .sp{flex:1}
+.btn{appearance:none;border:1px solid var(--line);background:var(--glass);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;transition:.25s}
+.btn:hover,.btn:focus-visible{background:var(--glass2);border-color:var(--gold);outline:none}
+.wrap{position:relative;z-index:1;display:flex}
+nav#toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 52px);align-self:flex-start;height:calc(100vh - 60px);overflow:auto;width:270px;flex:none;padding:18px 10px 40px 18px;background:rgba(21,27,38,.5);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-right:1px solid var(--line);transition:margin .35s ease,opacity .35s}
+body.hide-toc nav#toc{margin-left:-270px;opacity:0}
+nav#toc a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:5px 10px;border-radius:8px;line-height:1.5;transition:.2s}
+nav#toc a.sub{padding-left:26px;font-size:13px}
+nav#toc a:hover{color:var(--ink);background:var(--glass)}
+nav#toc a.on{color:var(--bg);background:var(--gold);font-weight:700}
+nav#toc .h{font-size:11px;letter-spacing:.2em;color:var(--gold);margin:14px 10px 4px}
+main{flex:1;min-width:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 80px}
+@media (max-width:900px){nav#toc{position:fixed;left:0;top:calc(env(safe-area-inset-top,0px) + 50px);height:calc(100% - 50px);z-index:45;width:min(82vw,300px);background:rgba(15,20,30,.9)} body:not(.show-toc) nav#toc{margin-left:-110%;opacity:0} body.show-toc nav#toc{margin-left:0;opacity:1}}
+section{max-width:1180px;margin:0 auto;padding-block:56px 8px;scroll-margin-top:70px}
+.hero{max-width:1180px;margin:0 auto;padding-block:64px 26px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-size:12px;letter-spacing:.35em;color:var(--gold)}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(40px,7vw,84px);line-height:1.1;margin:.2em 0;text-wrap:balance}
+h1 .a{color:var(--steel)} h1 .b{color:var(--blood)}
+h1 small{display:block;font-size:.34em;color:var(--muted);font-weight:600;margin-top:.4em;letter-spacing:.06em}
+h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px);line-height:1.25;margin:0 0 14px;text-wrap:balance}
+h2 .n{font-family:var(--mono);font-size:.5em;color:var(--gold);vertical-align:middle;margin-right:10px;border:1px solid var(--gold);border-radius:6px;padding:2px 8px}
+h3{font-family:var(--serif);font-size:22px;margin:26px 0 8px;color:#fff}
+p{margin:.6em 0;max-width:72ch}
+.lead{font-size:18px;color:#d6dce8}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.chip{font-size:13px;padding:4px 12px;border-radius:999px;background:var(--glass);border:1px solid var(--line)}
+.c-s{border-color:var(--steel);color:var(--steel)}.c-b{border-color:var(--blood);color:var(--blood)}.c-g{border-color:var(--gold);color:var(--gold)}.c-l{border-color:var(--leaf);color:var(--leaf)}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:20px 22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.grid>*{min-width:0}
+.k{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+mark{background:linear-gradient(transparent 55%,rgba(242,192,99,.42) 55%);color:#fff;padding:0 2px}
+.hard{background:rgba(226,82,92,.12);border:1px dashed var(--blood);border-radius:12px;padding:12px 16px;margin:14px 0}
+.hard::before{content:"⚠ 难点  ";color:var(--blood);font-weight:700}
+.key{background:rgba(111,214,164,.1);border-left:4px solid var(--leaf);border-radius:0 12px 12px 0;padding:12px 16px;margin:14px 0}
+.key::before{content:"✦ 核心  ";color:var(--leaf);font-weight:700}
+.note{font-size:13.5px;color:var(--muted)}
+.verses{font-family:var(--serif);font-size:17px;line-height:2}
+.verses .v{display:block;padding:2px 10px;border-radius:8px;transition:background .3s}
+.verses .v:hover{background:var(--glass2)}
+.verses sup{font-family:var(--mono);color:var(--gold);font-size:11px;margin-right:6px}
+.vA{color:#cfe0f3}.vB{color:#ffc4c8}.vC{color:#c6f0db}.vD{color:#ffe3a8}
+.verses .sec{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.15em;color:var(--muted);margin:12px 10px 2px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.tbl{overflow-x:auto;border-radius:14px;border:1px solid var(--line);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+.tbl.s table{min-width:0}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:rgba(242,192,99,.11);color:var(--gold);font-weight:700;white-space:nowrap}
+tr:hover td{background:var(--glass)}
+.fig{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:10px;margin:14px 0}
+.fig svg{display:block;width:100%;min-width:640px;height:auto}
+.fig figcaption{font-size:13px;color:var(--muted);padding:6px 8px 0}
+svg text{font-family:var(--sans)}
+.chain{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0}
+.chain .st{padding:10px 16px;border-radius:14px;font-family:var(--serif);font-weight:600;border:1px solid var(--line);background:var(--glass);animation:glow 5s infinite}
+.chain .st small{font-family:var(--sans);font-weight:400;color:var(--muted)}
+.chain .ar{color:var(--gold)}
+.chain .st:nth-child(3){animation-delay:1s}.chain .st:nth-child(5){animation-delay:2s}.chain .st:nth-child(7){animation-delay:3s}.chain .st:nth-child(9){animation-delay:4s}
+@keyframes glow{0%,70%,100%{box-shadow:none}35%{box-shadow:0 0 0 2px var(--gold),0 0 24px rgba(242,192,99,.45)}}
+/* 刀分开：互动对照 */
+.split{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.split>div{padding:18px 20px;min-width:0}
+.split .L{background:rgba(143,179,217,.1)} .split .R{background:rgba(226,82,92,.1)}
+.split .blade{width:6px;background:linear-gradient(var(--gold),#fff,var(--gold));box-shadow:0 0 18px var(--gold);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 4px var(--gold)}}
+@media(max-width:640px){.split{grid-template-columns:1fr}.split .blade{width:auto;height:6px}}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
+.tab{appearance:none;font:inherit;cursor:pointer;padding:8px 16px;border-radius:12px;border:1px solid var(--line);background:var(--glass);color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--gold);color:var(--bg);font-weight:700;border-color:var(--gold)}
+.flip{perspective:900px;height:170px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:16px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);overflow:auto}
+.flip .f{background:linear-gradient(140deg,rgba(143,179,217,.2),rgba(169,155,255,.1));font-family:var(--serif);font-size:19px;font-weight:600}
+.flip .f small{font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400;margin-top:8px}
+.flip .b{background:linear-gradient(140deg,rgba(242,192,99,.2),rgba(226,82,92,.14));transform:rotateY(180deg);font-size:14.5px;line-height:1.7}
+details{border:1px solid var(--line);border-radius:14px;background:var(--glass);margin:10px 0;overflow:hidden}
+summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none;display:flex;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"＋";color:var(--gold);font-family:var(--mono)}
+details[open] summary::before{content:"－"}
+details .ans{padding:0 18px 16px;border-top:1px dashed var(--line)}
+.badge{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;font-weight:700}
+.bS{background:rgba(143,179,217,.2);color:var(--steel)}.bB{background:rgba(226,82,92,.2);color:var(--blood)}.bG{background:rgba(242,192,99,.2);color:var(--gold)}.bL{background:rgba(111,214,164,.2);color:var(--leaf)}
+.foot{max-width:1180px;margin:60px auto 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:20px}
+a{color:var(--steel)}
+.rv{transition:transform .7s ease,opacity .7s ease}.rv.pre{transform:translateY(14px);opacity:.55}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="prog"></div>
+<div class="bar">
+  <button class="btn" id="tocBtn" aria-controls="toc">☰ 目录</button>
+  <b>基督使人纷争</b><span class="sp"></span>
+  <span class="chip c-g" style="font-size:12px">太 10:5-39 · 约 7:40-44</span>
+</div>
+
+<div class="wrap">
+<nav id="toc" aria-label="目录">
+  <div class="h">导 引</div>
+  <a href="#top">⚔️ 题旨</a>
+  <a href="#worship">🎵 礼拜程序</a>
+  <div class="h">背 景</div>
+  <a href="#bg">📜 作者·受众·年代·处境</a>
+  <a href="#map" class="sub">🗺️ 地图</a>
+  <a href="#text">📖 经文（和合本）</a>
+  <a href="#ctx" class="sub">🧩 上下文结构</a>
+  <a href="#big">🔭 跳出框架：整本圣经</a>
+  <div class="h">讲 章</div>
+  <a href="#p1">🗡️ 一、什么样的纷争</a>
+  <a href="#p2">📣 二、怎样带来纷争</a>
+  <a href="#p3">🎯 三、为什么带来纷争</a>
+  <a href="#church">⛪ 甚至在教会中</a>
+  <a href="#parallel">🔗 类似经文</a>
+  <a href="#loop">♾️ 四重闭环</a>
+  <a href="#angles">🧭 多重视角</a>
+  <a href="#confess">🏛️ 信条见证</a>
+  <a href="#apply">🙏 应用</a>
+  <div class="h">温 习</div>
+  <a href="#qa">💬 讨论与答案</a>
+  <a href="#ext">🧱 拓展</a>
+  <a href="#mind">🧠 思维导图</a>
+  <a href="#cards">🃏 记忆卡</a>
+  <a href="#sum">✅ 总结列表</a>
+</nav>
+
+<main>
+<div class="hero" id="top">
+  <div>
+    <div class="eyebrow">CONTINENTAL REFORMED · SERMON</div>
+    <h1><span class="a">基督</span>使人<span class="b">纷争</span><small>甚至在教会中也是如此</small></h1>
+    <p class="lead">"你们不要想我来是叫地上太平；我来并不是叫地上太平，乃是叫地上动刀兵。"(太10:34) 和平之君说他带来刀。这把刀不在士兵手里，而在<mark>他的话</mark>里；它切开的不是肉体，而是<mark>人心</mark>，连家庭和教会也被切开。</p>
+    <div class="chips"><span class="chip c-s">🗡️ 什么纷争</span><span class="chip c-g">📣 怎样纷争</span><span class="chip c-b">🎯 为何纷争</span><span class="chip c-l">⛪ 教会中</span></div>
+  </div>
+  <div class="glass">
+    <div class="k">一句话记住</div>
+    <p style="font-family:var(--serif);font-size:21px;line-height:1.65;margin:.4em 0">人为<b style="color:var(--steel)">基督是谁</b>而分开；分开的工具是<b style="color:var(--gold)">他的道</b>；分开的目的是<b style="color:var(--blood)">显明人心</b>，并把<b style="color:var(--leaf)">真正属他的人</b>聚成一群。</p>
+    <div class="k" style="margin-top:12px">两个关键词</div>
+    <p>太10:34 <b>"刀"</b>（machaira）· 约7:43 <b>"纷争"</b>（schisma，即"分裂"一词的词源）</p>
+  </div>
+</div>
+
+<section id="worship">
+  <h2><span class="n">00</span>礼拜程序</h2>
+  <div class="grid g4">
+    <div class="glass"><div class="k">诗歌</div><p>🎵 圣诗 4 首<br>🎵 韵诗 3 篇<br>🎵 韵诗 2 篇<br>🎵 诗篇 23 篇</p></div>
+    <div class="glass"><div class="k">读经</div><p style="font-family:var(--serif);font-size:20px">📖 马太福音 10:5-39</p></div>
+    <div class="glass"><div class="k">证经</div><p style="font-family:var(--serif);font-size:20px">📖 约翰福音 7:40-44</p></div>
+    <div class="glass"><div class="k">主题</div><p style="font-family:var(--serif);font-size:20px">基督使人纷争——甚至在教会中也是如此</p></div>
+  </div>
+  <p class="note">诗篇 2 篇正好是本主题的序曲："外邦为什么争闹……要挣开他们的捆绑"(诗2:1-3)；诗篇 23 篇是结尾的安慰：被分别出来的羊，有好牧人同在。</p>
+</section>
+
+<section id="bg">
+  <h2><span class="n">01</span>真实背景：作者 · 受众 · 年代 · 处境</h2>
+  <div class="grid g2">
+    <div class="glass">
+      <div class="k">📖 马太福音 10</div>
+      <div class="tbl s"><table>
+        <tr><th>作者</th><td>使徒马太（利未），原是税吏(9:9; 10:3)。早期教会一致归于他</td></tr>
+        <tr><th>年代</th><td>多数保守学者定在约主后 60–70 年（圣殿被毁之前）</td></tr>
+        <tr><th>受众</th><td>以犹太背景信徒为主的教会：处处引旧约，证明耶稣是应许的弥赛亚、大卫的子孙</td></tr>
+        <tr><th>处境</th><td>信耶稣的犹太人被会堂排斥、被家人弃绝；罗马与犹太当局两面施压</td></tr>
+        <tr><th>事件时间</th><td>约主后 29 年，耶稣加利利事工中期，第一次差派十二使徒</td></tr>
+        <tr><th>卷中位置</th><td>马太五大讲论之二："差遣讲论"（另四篇：登山宝训5–7、比喻13、教会18、末世24–25）</td></tr>
+      </table></div>
+    </div>
+    <div class="glass">
+      <div class="k">📖 约翰福音 7</div>
+      <div class="tbl s"><table>
+        <tr><th>作者</th><td>使徒约翰，"耶稣所爱的门徒"(约21:20,24)</td></tr>
+        <tr><th>年代</th><td>约主后 85–95 年，在以弗所写成</td></tr>
+        <tr><th>目的</th><td>"要叫你们信耶稣是基督，是神的儿子"(约20:31)</td></tr>
+        <tr><th>事件</th><td>约主后 29 年秋，<b>住棚节</b>，耶路撒冷圣殿，离受难约半年</td></tr>
+        <tr><th>场景</th><td>节期末日最大之日，祭司每天从西罗亚池取水浇在祭坛上。耶稣站着高声说："人若渴了，可以到我这里来喝"(7:37)</td></tr>
+        <tr><th>反应</th><td>有人说"这真是那先知"，有人说"这是基督"，有人说"基督岂是从加利利出来的吗？"——"众人因着耶稣起了纷争"(7:43)</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="key">两段经文都发生在<b>神的约民</b>中间：太10 的使徒"只往以色列家迷失的羊那里去"(10:6)；约7 的众人是在<b>圣殿</b>守节的百姓。纷争不是从外邦开始的，而是从神的家里开始的（彼前4:17）。这就是题目"甚至在教会中"的经文根据。</div>
+  <div class="hard">约7:42 的讽刺：众人说"基督是大卫的后裔，从伯利恒出来的"，却不知道耶稣正是生在伯利恒（太2:1）。他们拿着圣经，却因一知半解而拒绝了圣经所指的那一位。纷争常常不是因为没有圣经，而是因为人不肯来到基督面前查明。</div>
+
+  <h3 id="map">🗺️ 地图：差派与住棚节</h3>
+  <figure class="fig">
+  <svg viewBox="0 0 900 470" role="img" aria-label="加利利、撒玛利亚、犹太地图">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#f2c063"/></marker>
+    </defs>
+    <rect width="900" height="470" fill="#111723"/>
+    <path d="M0,0 L170,0 C150,120 140,240 120,470 L0,470 Z" fill="#1b3350"/>
+    <text x="30" y="250" fill="#8fb3d9" font-size="15" opacity=".8">大 海</text>
+    <ellipse cx="520" cy="120" rx="34" ry="52" fill="#245a7a"/>
+    <text x="565" y="110" fill="#4fc1c9" font-size="13">加利利海</text>
+    <path d="M520,172 C510,240 525,320 515,400" stroke="#4fc1c9" stroke-width="3" fill="none"/>
+    <text x="530" y="300" fill="#4fc1c9" font-size="12">约旦河</text>
+    <ellipse cx="515" cy="430" rx="22" ry="38" fill="#245a7a"/>
+    <text x="545" y="440" fill="#4fc1c9" font-size="12">盐海</text>
+    <rect x="210" y="40" width="250" height="140" rx="18" fill="rgba(111,214,164,.08)" stroke="#6fd6a4" stroke-dasharray="5 5"/>
+    <text x="225" y="65" fill="#6fd6a4" font-size="15" font-weight="700">加利利 · 差派之地</text>
+    <rect x="210" y="200" width="250" height="90" rx="18" fill="rgba(226,82,92,.08)" stroke="#e2525c" stroke-dasharray="5 5"/>
+    <text x="225" y="225" fill="#e2525c" font-size="15" font-weight="700">撒玛利亚 · "不要进"(10:5)</text>
+    <rect x="210" y="310" width="250" height="140" rx="18" fill="rgba(242,192,99,.08)" stroke="#f2c063" stroke-dasharray="5 5"/>
+    <text x="225" y="335" fill="#f2c063" font-size="15" font-weight="700">犹太 · 住棚节</text>
+    <g font-size="14" fill="#e8ecf3">
+      <circle cx="480" cy="105" r="7" fill="#6fd6a4"/><text x="380" y="100">迦百农</text>
+      <circle cx="400" cy="140" r="6" fill="#6fd6a4"/><text x="330" y="160">拿撒勒</text>
+      <circle cx="350" cy="250" r="6" fill="#e2525c"/><text x="365" y="268">叙加</text>
+      <circle cx="420" cy="380" r="9" fill="#f2c063"/><text x="300" y="385" font-weight="700">耶路撒冷 · 圣殿</text>
+      <circle cx="410" cy="420" r="6" fill="#f2c063"/><text x="330" y="430">伯利恒</text>
+    </g>
+    <path d="M480,112 C700,140 700,330 432,378" fill="none" stroke="#f2c063" stroke-width="2.5" stroke-dasharray="6 6" marker-end="url(#ah)"/>
+    <text x="650" y="230" fill="#f2c063" font-size="13">约7:10 耶稣暗暗上去过节</text>
+    <path d="M410,414 C600,470 680,420 690,370" fill="none" stroke="#a99bff" stroke-width="1.8"/>
+    <text x="620" y="360" fill="#a99bff" font-size="13">约7:42 "从伯利恒出来"</text>
+    <text x="620" y="378" fill="#a99bff" font-size="12">众人不知道他正生在那里</text>
+  </svg>
+  <figcaption>示意图，非比例尺。绿色：太10 使徒出去的范围；红色：暂不进入的撒玛利亚；金色：约7 的场景。</figcaption>
+  </figure>
+</section>
+
+<section id="text">
+  <h2><span class="n">02</span>经文（和合本）</h2>
+  <div class="legend"><span><i style="background:var(--steel)"></i>差派与使命</span><span><i style="background:var(--blood)"></i>逼迫与纷争</span><span><i style="background:var(--leaf)"></i>安慰与应许</span><span><i style="background:var(--gold)"></i>效忠与抉择</span></div>
+  <div class="grid g2" style="margin-top:12px">
+    <div class="glass verses">
+      <div class="k">读经 · 马太福音 10:5-39</div>
+      <span class="sec">Ⅰ 差派 v5-15</span>
+      <span class="v vA"><sup>5</sup>耶稣差这十二个人去，吩咐他们说："外邦人的路，你们不要走；撒玛利亚人的城，你们不要进；</span>
+      <span class="v vA"><sup>6</sup>宁可往以色列家迷失的羊那里去。</span>
+      <span class="v vA"><sup>7</sup>随走随传，说'天国近了！'</span>
+      <span class="v vA"><sup>8</sup>医治病人，叫死人复活，叫长大麻风的洁净，把鬼赶出去。你们白白地得来，也要白白地舍去。</span>
+      <span class="v vA"><sup>9</sup>腰袋里不要带金银铜钱。</span>
+      <span class="v vA"><sup>10</sup>行路不要带口袋，不要带两件褂子，也不要带鞋和拐杖；因为工人得饮食是应当的。</span>
+      <span class="v vA"><sup>11</sup>你们无论进哪一城，哪一村，要打听那里谁是好人，就住在他家，直住到走的时候。</span>
+      <span class="v vA"><sup>12</sup>进他家里去，要请他的安。</span>
+      <span class="v vA"><sup>13</sup>那家若配得平安，你们所求的平安就必临到那家；若不配得，你们所求的平安仍归你们。</span>
+      <span class="v vB"><sup>14</sup>凡不接待你们、不听你们话的人，你们离开那家或是那城的时候，就把脚上的尘土跺下去。</span>
+      <span class="v vB"><sup>15</sup>我实在告诉你们，当审判的日子，所多玛和蛾摩拉所受的，比那城还容易受呢！"</span>
+      <span class="sec">Ⅱ 逼迫 v16-25</span>
+      <span class="v vB"><sup>16</sup>"我差你们去，如同羊进入狼群；所以你们要灵巧像蛇，驯良像鸽子。</span>
+      <span class="v vB"><sup>17</sup>你们要防备人，因为他们要把你们交给公会，也要在会堂里鞭打你们；</span>
+      <span class="v vB"><sup>18</sup>并且你们要为我的缘故被送到诸侯君王面前，对他们和外邦人作见证。</span>
+      <span class="v vC"><sup>19</sup>你们被交的时候，不要思虑怎样说话，或说什么话。到那时候，必赐给你们当说的话；</span>
+      <span class="v vC"><sup>20</sup>因为不是你们自己说的，乃是你们父的灵在你们里头说的。</span>
+      <span class="v vB"><sup>21</sup>弟兄要把弟兄、父亲要把儿子送到死地；儿女要与父母为敌，害死他们；</span>
+      <span class="v vB"><sup>22</sup>并且你们要为我的名被众人恨恶；惟有忍耐到底的，必然得救。</span>
+      <span class="v vB"><sup>23</sup>有人在这城里逼迫你们，就逃到那城里去。我实在告诉你们，以色列的城邑你们还没有走遍，人子就到了。</span>
+      <span class="v vB"><sup>24</sup>学生不能高过先生；仆人不能高过主人。</span>
+      <span class="v vB"><sup>25</sup>学生和先生一样，仆人和主人一样，也就罢了。人既骂家主是别西卜，何况他的家人呢？"</span>
+      <span class="sec">Ⅲ 不要怕 v26-33</span>
+      <span class="v vC"><sup>26</sup>"所以，不要怕他们；因为掩盖的事没有不露出来的，隐藏的事没有不被人知道的。</span>
+      <span class="v vC"><sup>27</sup>我在暗中告诉你们的，你们要在明处说出来；你们耳中所听的，要在房上宣扬出来。</span>
+      <span class="v vC"><sup>28</sup>那杀身体不能杀灵魂的，不要怕他们；惟有能把身体和灵魂都灭在地狱里的，正要怕他。</span>
+      <span class="v vC"><sup>29</sup>两个麻雀不是卖一分银子吗？若是你们的父不许，一个也不能掉在地上。</span>
+      <span class="v vC"><sup>30</sup>就是你们的头发也都被数过了。</span>
+      <span class="v vC"><sup>31</sup>所以，不要惧怕，你们比许多麻雀还贵重。</span>
+      <span class="v vD"><sup>32</sup>凡在人面前认我的，我在我天上的父面前也必认他；</span>
+      <span class="v vD"><sup>33</sup>凡在人面前不认我的，我在我天上的父面前也必不认他。"</span>
+      <span class="sec">Ⅳ 刀 v34-39</span>
+      <span class="v vB"><sup>34</sup>"你们不要想我来是叫地上太平；我来并不是叫地上太平，乃是叫地上动刀兵。</span>
+      <span class="v vB"><sup>35</sup>因为我来是叫人与父亲生疏，女儿与母亲生疏，媳妇与婆婆生疏。</span>
+      <span class="v vB"><sup>36</sup>人的仇敌就是自己家里的人。</span>
+      <span class="v vD"><sup>37</sup>爱父母过于爱我的，不配作我的门徒；爱儿女过于爱我的，不配作我的门徒；</span>
+      <span class="v vD"><sup>38</sup>不背着他的十字架跟从我的，也不配作我的门徒。</span>
+      <span class="v vD"><sup>39</sup>得着生命的，将要失丧生命；为我失丧生命的，将要得着生命。"</span>
+    </div>
+    <div>
+      <div class="glass verses">
+        <div class="k">证经 · 约翰福音 7:40-44</div>
+        <span class="v vA"><sup>40</sup>众人听见这话，有的说："这真是那先知。"</span>
+        <span class="v vC"><sup>41</sup>有的说："这是基督。"但也有的说："基督岂是从加利利出来的吗？</span>
+        <span class="v vB"><sup>42</sup>经上岂不是说'基督是大卫的后裔，从大卫本乡伯利恒出来的'吗？"</span>
+        <span class="v vB"><sup>43</sup>于是众人因着耶稣起了纷争。</span>
+        <span class="v vB"><sup>44</sup>其中有人要捉拿他，只是无人下手。</span>
+      </div>
+      <h3>👥 约7 的四种反应</h3>
+      <div class="tbl s"><table>
+        <tr><th>群体</th><th>说法</th><th>判断</th></tr>
+        <tr><td><span class="badge bS">一</span>"那先知"</td><td>申18:15 应许的先知</td><td>接近，但不完全</td></tr>
+        <tr><td><span class="badge bL">二</span>"这是基督"</td><td>受膏的弥赛亚</td><td>正确的认信</td></tr>
+        <tr><td><span class="badge bB">三</span>"岂是从加利利"</td><td>用经文反对他</td><td>有知识，没查明</td></tr>
+        <tr><td><span class="badge bG">四</span>"要捉拿他"</td><td>敌意转成行动</td><td>神的时候未到(7:30)</td></tr>
+      </table></div>
+      <div class="key">同一篇讲道、同一位讲员、同一群约民，结果是四种反应。<b>纷争的分界线不是讲员，而是听的人怎样对待基督。</b></div>
+      <div class="hard">太10:34 不是说基督来的<b>目的</b>是破坏和平，而是说他来的<b>必然后果</b>。圣经常用"为要"表达神所定的结果（参赛6:9-10；可4:12）。基督是"和平之君"(赛9:6)，他赐的平安"不像世人所赐的"(约14:27)：先叫人与神和好，因此必与不肯和好的世界产生张力。</div>
+    </div>
+  </div>
+
+  <h3 id="ctx">🧩 上下文结构</h3>
+  <figure class="fig">
+  <svg viewBox="0 0 1000 200" role="img" aria-label="马太福音10章结构">
+    <g font-size="14" text-anchor="middle">
+      <rect x="10" y="40" width="230" height="100" rx="16" fill="rgba(143,179,217,.15)" stroke="#8fb3d9"/>
+      <text x="125" y="75" fill="#cfe0f3" font-weight="700" font-size="16">Ⅰ 差派 v5-15</text>
+      <text x="125" y="100" fill="#e8ecf3">平安临到配得的家</text><text x="125" y="122" fill="#9aa6b8">跺下脚上的尘土</text>
+      <rect x="255" y="40" width="230" height="100" rx="16" fill="rgba(226,82,92,.15)" stroke="#e2525c"/>
+      <text x="370" y="75" fill="#ffc4c8" font-weight="700" font-size="16">Ⅱ 逼迫 v16-25</text>
+      <text x="370" y="100" fill="#e8ecf3">羊入狼群</text><text x="370" y="122" fill="#9aa6b8">弟兄把弟兄交出</text>
+      <rect x="500" y="40" width="230" height="100" rx="16" fill="rgba(111,214,164,.15)" stroke="#6fd6a4"/>
+      <text x="615" y="75" fill="#c6f0db" font-weight="700" font-size="16">Ⅲ 不要怕 v26-33</text>
+      <text x="615" y="100" fill="#e8ecf3">麻雀与头发</text><text x="615" y="122" fill="#9aa6b8">认我 / 不认我</text>
+      <rect x="745" y="40" width="245" height="100" rx="16" fill="rgba(242,192,99,.15)" stroke="#f2c063"/>
+      <text x="867" y="75" fill="#ffe3a8" font-weight="700" font-size="16">Ⅳ 刀 v34-39</text>
+      <text x="867" y="100" fill="#e8ecf3">家里的人成仇敌</text><text x="867" y="122" fill="#9aa6b8">背十字架·失丧得着</text>
+    </g>
+    <path d="M125,150 C125,185 867,185 867,150" fill="none" stroke="#f2c063" stroke-dasharray="5 5"/>
+    <text x="500" y="196" fill="#f2c063" font-size="13" text-anchor="middle">首尾呼应：v13 "平安"的问题，在 v34 得到最终答案——基督带来的平安，必分别人</text>
+  </svg>
+  </figure>
+  <p>前文：9:35-38 耶稣看见"群众困苦流离，如同羊没有牧人"，就吩咐求庄稼的主打发工人。第10章是这祷告的回答。后文：11章施洗约翰在监里发问"那将要来的是你吗？"(11:3)，又有"这世代"的弃绝(11:16-24)与"凡劳苦担重担的"的邀请(11:28)。<mark>纷争与邀请总是并行出现。</mark></p>
+</section>
+
+<section id="big">
+  <h2><span class="n">03</span>跳出框架：在整本圣经中的位置</h2>
+  <p>先看森林。"基督使人纷争"不是新约突然冒出的主题，它从伊甸园门口就已开始：神在女人的后裔与蛇的后裔之间<b>放下仇恨</b>(创3:15)。太10:35-36 直接引用弥迦书7:6，那是以色列国内背道、连家人都不可信的黑暗时代。基督说：这句话要在我身上应验。</p>
+  <figure class="fig">
+  <svg viewBox="0 0 1000 250" role="img" aria-label="救赎历史中的分别">
+    <defs><linearGradient id="tl" x1="0" x2="1"><stop offset="0" stop-color="#8fb3d9"/><stop offset=".55" stop-color="#f2c063"/><stop offset="1" stop-color="#e2525c"/></linearGradient></defs>
+    <line x1="40" y1="120" x2="960" y2="120" stroke="url(#tl)" stroke-width="6" stroke-linecap="round"/>
+    <g font-size="14" fill="#e8ecf3" text-anchor="middle">
+      <circle cx="60" cy="120" r="10" fill="#e2525c"/><text x="60" y="95">创3:15</text><text x="60" y="150" font-size="12" fill="#9aa6b8">两种后裔</text>
+      <circle cx="160" cy="120" r="9" fill="#8fb3d9"/><text x="160" y="95">该隐·亚伯</text><text x="160" y="150" font-size="12" fill="#9aa6b8">第一场纷争</text>
+      <circle cx="265" cy="120" r="9" fill="#8fb3d9"/><text x="265" y="95">以撒·以实玛利</text><text x="265" y="150" font-size="12" fill="#9aa6b8">同一家中</text>
+      <circle cx="370" cy="120" r="9" fill="#8fb3d9"/><text x="370" y="95">雅各·以扫</text><text x="370" y="150" font-size="12" fill="#9aa6b8">罗9:13</text>
+      <circle cx="470" cy="120" r="9" fill="#8fb3d9"/><text x="470" y="95">出32:26</text><text x="470" y="150" font-size="12" fill="#9aa6b8">"凡属耶和华的"</text>
+      <circle cx="570" cy="120" r="9" fill="#a99bff"/><text x="570" y="95">弥7:6</text><text x="570" y="150" font-size="12" fill="#a99bff">家人成仇敌</text>
+      <circle cx="670" cy="120" r="12" fill="#f2c063"/><text x="670" y="95">路2:34-35</text><text x="670" y="150" font-size="12" fill="#f2c063">西面：被毁谤的记号</text>
+      <circle cx="770" cy="120" r="14" fill="#fff"/><text x="770" y="92" font-weight="700">太10 · 约7</text><text x="770" y="152" font-size="12" fill="#fff">刀与纷争</text>
+      <circle cx="865" cy="120" r="10" fill="#6fd6a4"/><text x="865" y="95">教会</text><text x="865" y="150" font-size="12" fill="#6fd6a4">约壹2:19</text>
+      <circle cx="950" cy="120" r="12" fill="#e2525c"/><text x="945" y="95">末日</text><text x="945" y="150" font-size="12" fill="#e2525c">绵羊山羊 太25</text>
+    </g>
+    <text x="500" y="215" fill="#f2c063" font-size="13" text-anchor="middle">一条线贯穿全本圣经：神在人类中划下分界，分界线最后落在一个人身上——拿撒勒人耶稣</text>
+  </svg>
+  <figcaption>救赎历史中"分别"的主线</figcaption>
+  </figure>
+  <div class="grid g3">
+    <div class="glass"><div class="k">🐍 从创3:15 看</div><p>人类历史从此不是一个中立的群体，而是两条后裔线。基督来到时，这场仇恨走到决定性的一刻：蛇伤他的脚跟（十字架），他伤蛇的头（复活）。</p></div>
+    <div class="glass"><div class="k">🪨 从"绊脚石"看</div><p>"看哪，我在锡安放一块石头"(赛8:14; 28:16; 彼前2:6-8)。同一块石头，信的人以为宝贵，不信的人因它跌倒。基督本身就是分界线。</p></div>
+    <div class="glass"><div class="k">🗡️ 从"刀"看</div><p>"神的道……比一切两刃的剑更快……连心中的思念和主意都能辨明"(来4:12)；复活的基督"口中出来一把两刃的利剑"(启1:16)。刀＝道。</p></div>
+  </div>
+</section>
+
+<section id="p1">
+  <h2><span class="n">I</span>🗡️ 基督带来的是什么样的纷争？</h2>
+  <p class="lead">先分辨。世上有很多纷争与基督无关，甚至是羞辱基督的。我们要知道哪一种纷争<mark>出于基督</mark>。</p>
+  <h3>1. 先排除三种"不是"</h3>
+  <div class="grid g3">
+    <div class="glass" style="border-color:var(--blood)"><div class="k" style="color:var(--blood)">❌ 不是武力之争</div><p>基督不用刀扩张国度。彼得动刀，主说"收刀入鞘"(太26:52)；"我的国不属这世界"(约18:36)。十字军式的"为主而战"误读了太10:34。</p></div>
+    <div class="glass" style="border-color:var(--blood)"><div class="k" style="color:var(--blood)">❌ 不是性格之争</div><p>好争吵、骄傲、结党，是肉体的行为(加5:20)。使徒要"驯良像鸽子"(10:16)。<b>因自己的愚蠢被人厌恶，不能算为基督受逼迫</b>（彼前4:15-16）。</p></div>
+    <div class="glass" style="border-color:var(--blood)"><div class="k" style="color:var(--blood)">❌ 不是次要之争</div><p>为饮食、节期、意见而分门别类，保罗称之为"辩论"(罗14:1)。哥林多人说"我是属保罗的"，是对基督身体的撕裂(林前1:12-13)。</p></div>
+  </div>
+  <h3>2. 再看清三个"是"</h3>
+  <div class="split">
+    <div class="L"><div class="k" style="color:var(--steel)">一边</div><p style="font-family:var(--serif);font-size:19px">"这是基督"(约7:41)<br>"在人面前认我"(太10:32)<br>接待使徒的家(10:11-13)<br>为主失丧生命(10:39)</p></div>
+    <div class="blade" aria-hidden="true"></div>
+    <div class="R"><div class="k" style="color:var(--blood)">另一边</div><p style="font-family:var(--serif);font-size:19px">"基督岂是从加利利出来"(7:41)<br>"在人面前不认我"(10:33)<br>不接待、不听(10:14)<br>"得着生命"却失丧(10:39)</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="glass"><div class="k">✅ 关于"他是谁"的纷争</div><p>约7 的全部争论都围绕身份：先知？基督？加利利人？这是<b>基督论</b>的纷争。太16:15 "你们说我是谁？"是每个人都要回答的问题。</p></div>
+    <div class="glass"><div class="k">✅ 关于"最爱谁"的纷争</div><p>太10:37"爱父母过于爱我的"：基督不禁止爱家人（第五诫），他要的是<b>排序</b>。当家人要求我们否认基督时，冲突就无法避免。</p></div>
+    <div class="glass"><div class="k">✅ 深入最亲近关系的纷争</div><p>父亲、母亲、婆婆、媳妇(10:35)，都在"一个家"里。这把刀不切在国与国之间，而切在<b>餐桌</b>中间，切在<b>会众</b>中间。</p></div>
+  </div>
+  <div class="key">基督带来的纷争是<b>属灵的分别</b>：在信与不信之间、认他与不认他之间、爱他至上与爱自己至上之间。它的本质是创3:15 那道"仇恨"在人群中的显现，而它的中心是基督这个人。</div>
+  <div class="tbl"><table>
+    <tr><th>比较</th><th>基督所带来的分别</th><th>人罪性所造成的分裂</th></tr>
+    <tr><td>起因</td><td>对基督和他的道的不同回应</td><td>骄傲、嫉妒、私欲、结党(雅4:1)</td></tr>
+    <tr><td>议题</td><td>福音的核心：基督是谁、怎样得救</td><td>次要问题、个人喜好、权力</td></tr>
+    <tr><td>态度</td><td>温柔、敬畏、流泪(彼前3:15-16)</td><td>苦毒、争吵、讥诮</td></tr>
+    <tr><td>目标</td><td>见证真理，盼望对方悔改</td><td>胜过对方，建立自己的派别</td></tr>
+    <tr><td>圣经评价</td><td>"必须有"(林前11:19)，"有福了"(太5:11)</td><td>"基督是分开的吗？"(林前1:13)</td></tr>
+  </table></div>
+</section>
+
+<section id="p2">
+  <h2><span class="n">II</span>📣 基督怎样带来这种纷争？</h2>
+  <p class="lead">基督不亲手挥刀。他做了四件事，纷争就自然出现。</p>
+  <div class="chain">
+    <span class="st" style="color:#cfe0f3">① 差派<br><small>10:5 "耶稣差"</small></span><span class="ar">➜</span>
+    <span class="st" style="color:#ffe3a8">② 传道<br><small>10:7 "天国近了"</small></span><span class="ar">➜</span>
+    <span class="st" style="color:#c6f0db">③ 圣灵<br><small>10:20 "父的灵"</small></span><span class="ar">➜</span>
+    <span class="st" style="color:#ffc4c8">④ 要求抉择<br><small>10:32-39</small></span><span class="ar">➜</span>
+    <span class="st" style="color:#fff">⚖️ 分别<br><small>约7:43</small></span>
+  </div>
+  <div class="grid g2">
+    <div class="glass">
+      <h3 style="margin-top:0">① 借着他所差派的人</h3>
+      <p>"接待你们的就是接待我"(10:40)。基督与他的使者认同到一个地步：人怎样对待使者，就是怎样对待他。<b>差派</b>(apostellō)正是"使徒"一词的词根。今天，基督仍借着合法呼召的传道人说话（罗10:14-15）。</p>
+    </div>
+    <div class="glass">
+      <h3 style="margin-top:0">② 借着他的道被宣讲</h3>
+      <p>"天国近了"不是一个邀请人参考的意见，而是君王的宣告。约7 中纷争的起点是"众人听见这话"(7:40)。<mark>没有道，就没有分别；有了道，就不再有中立。</mark>"在这等人，就作了死的香气叫他死；在那等人，就作了活的香气叫他活"(林后2:16)。</p>
+    </div>
+    <div class="glass">
+      <h3 style="margin-top:0">③ 借着圣灵在人心里的工作</h3>
+      <p>同样的话，为什么有人信、有人不信？10:20 "是你们父的灵在你们里头说"；约6:44"若不是差我来的父吸引人，就没有能到我这里来的"。<b>外在的呼召</b>临到所有听众，<b>有效的呼召</b>只临到蒙拣选的人。这是多特信经的核心（第三、四项教义）。</p>
+    </div>
+    <div class="glass">
+      <h3 style="margin-top:0">④ 借着要求完全的效忠</h3>
+      <p>"不配作我的门徒"连说三次(10:37-38)。基督不接受"也爱他"，只接受"更爱他"。<b>十字架</b>在第一世纪不是装饰，而是罪犯走向刑场时背的木头：跟从他就是向自己死。</p>
+    </div>
+  </div>
+  <h3>🔀 流程图：同一篇道，两条路</h3>
+  <figure class="fig">
+  <svg viewBox="0 0 960 330" role="img" aria-label="福音宣讲后的两种结果">
+    <defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#9aa6b8"/></marker></defs>
+    <g font-size="14" text-anchor="middle">
+      <rect x="20" y="130" width="170" height="64" rx="14" fill="rgba(242,192,99,.18)" stroke="#f2c063"/>
+      <text x="105" y="158" fill="#ffe3a8" font-weight="700">福音被宣讲</text><text x="105" y="180" fill="#9aa6b8" font-size="12">外在呼召 · 临到众人</text>
+      <rect x="250" y="130" width="170" height="64" rx="14" fill="rgba(255,255,255,.06)" stroke="#9aa6b8"/>
+      <text x="335" y="158" fill="#fff" font-weight="700">人心面对基督</text><text x="335" y="180" fill="#9aa6b8" font-size="12">"你们说我是谁？"</text>
+      <rect x="490" y="40" width="200" height="64" rx="14" fill="rgba(111,214,164,.16)" stroke="#6fd6a4"/>
+      <text x="590" y="68" fill="#c6f0db" font-weight="700">圣灵重生 · 有效呼召</text><text x="590" y="90" fill="#9aa6b8" font-size="12">"这是基督"(约7:41)</text>
+      <rect x="490" y="220" width="200" height="64" rx="14" fill="rgba(226,82,92,.16)" stroke="#e2525c"/>
+      <text x="590" y="248" fill="#ffc4c8" font-weight="700">心被刚硬 · 拒绝</text><text x="590" y="270" fill="#9aa6b8" font-size="12">"要捉拿他"(约7:44)</text>
+      <rect x="750" y="40" width="190" height="64" rx="14" fill="rgba(111,214,164,.08)" stroke="#6fd6a4"/>
+      <text x="845" y="68" fill="#c6f0db">认主 · 背十字架</text><text x="845" y="90" fill="#9aa6b8" font-size="12">失丧生命 → 得着</text>
+      <rect x="750" y="220" width="190" height="64" rx="14" fill="rgba(226,82,92,.08)" stroke="#e2525c"/>
+      <text x="845" y="248" fill="#ffc4c8">不认主 · 保全自己</text><text x="845" y="270" fill="#9aa6b8" font-size="12">得着生命 → 失丧</text>
+    </g>
+    <g stroke="#9aa6b8" stroke-width="2" fill="none">
+      <path d="M190,162 L245,162" marker-end="url(#a2)"/>
+      <path d="M420,150 C460,120 460,80 485,74" marker-end="url(#a2)"/>
+      <path d="M420,175 C460,205 460,245 485,250" marker-end="url(#a2)"/>
+      <path d="M690,72 L745,72" marker-end="url(#a2)"/>
+      <path d="M690,252 L745,252" marker-end="url(#a2)"/>
+    </g>
+    <text x="480" y="320" fill="#9aa6b8" font-size="12" text-anchor="middle">信是神白白的恩赐；不信的罪在人自己，不在福音，也不在神（多特信经 第一项教义 第5条；第三、四项教义 第9条，大意）</text>
+  </svg>
+  </figure>
+  <div class="hard">如果圣灵决定谁信，那么不信的人有没有责任？有。多特信经说，许多人蒙召却不来，<b>错不在福音，也不在借福音所赐下的基督</b>，而在人自己。约7 那些人手里有圣经、眼前有基督，他们的拒绝是自己的选择；而信的人的信却全是恩典。两者都必须同时持守。</div>
+</section>
+
+<section id="p3">
+  <h2><span class="n">III</span>🎯 基督为什么带来这种纷争？</h2>
+  <p class="lead">如果基督是爱，为什么他所到之处总有人反目？答案有五层，从人心一直通到神的荣耀。</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-t="w1">① 显明人心</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="w2">② 因为人本是仇敌</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="w3">③ 洁净他的百姓</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="w4">④ 建立真正的合一</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="w5">⑤ 预演最后审判</button>
+  </div>
+  <div class="glass" id="w1"><h3 style="margin-top:0">① 为要显明人心</h3><p>西面抱着婴孩耶稣说："这孩子被立，是要叫以色列中许多人跌倒，许多人兴起；又要作毁谤的话柄……<b>叫许多人心里的意念显露出来</b>"(路2:34-35)。基督是一面镜子。站在他面前，隐藏的爱与恨都"露出来"(太10:26)。约7 中那些守节的敬虔人，到底爱的是神，还是自己心中的弥赛亚形象？在基督面前就显明了。</p></div>
+  <div class="glass" id="w2" hidden><h3 style="margin-top:0">② 因为人心本来与神为敌</h3><p>纷争不是基督制造的病，而是基督暴露出来的病。"体贴肉体的，就是与神为仇"(罗8:7)；海德堡要理问答第5问承认，人<b>生来就倾向于恨神和恨邻舍</b>（大意）。光来到世间，"人不爱光倒爱黑暗"(约3:19)。若基督只是一位道德教师，世界会容忍他；正因为他是光，所以世界恨他（约7:7"世人……恨我，因为我指证他们所做的事是恶的"）。</p></div>
+  <div class="glass" id="w3" hidden><h3 style="margin-top:0">③ 为要炼净他的百姓</h3><p>"他来的日子，谁能当得起呢？……他如炼金之人的火"(玛3:2-3)。逼迫与分别像筛子：把那"暂时相信"的石头地(太13:20-21)与真信心分开。保罗说"在你们中间不免有分门结党的事，好叫那些<b>经验</b>的人显明出来"(林前11:19)。dokimos（经验、被验明）与罗5:4"老练"同源。</p></div>
+  <div class="glass" id="w4" hidden><h3 style="margin-top:0">④ 为要建立在真理上的合一</h3><p>最深的吊诡：<mark>基督带来分别，是为了带来合一。</mark>他拆毁犹太人与外邦人"中间隔断的墙"(弗2:14)，把各族各方的人合成"一个新人"。但这合一只能在他里面、在真理上。没有真理的和平，是先知耶利米痛斥的假平安："平安了！平安了！其实没有平安"(耶6:14)。比利时信条第27–29条：教会是在基督里真信徒的圣会，借纯正传道、圣礼、教会惩戒而被辨认。</p></div>
+  <div class="glass" id="w5" hidden><h3 style="margin-top:0">⑤ 为要预演末日的分别</h3><p>"认我的，我在我天上的父面前也必认他"(10:32-33)。今天的分别，是末日审判的预告：绵羊在右、山羊在左(太25:31-46)；麦子与稗子同长，"等收割"(太13:30)。今天在会众中的纷争，提醒我们：那日一切都要显明。这就是为什么基督说"不要怕人，正要怕他"(10:28)。</p></div>
+  <h3>📐 一个比较：假平安 vs 真平安</h3>
+  <div class="tbl"><table>
+    <tr><th></th><th>世人所赐的平安</th><th>基督所赐的平安(约14:27)</th></tr>
+    <tr><td>基础</td><td>回避冲突，各自保留真理</td><td>与神和好(罗5:1)，在真理上</td></tr>
+    <tr><td>代价</td><td>不认基督，保全关系</td><td>可能失去关系，但得着基督</td></tr>
+    <tr><td>持续</td><td>环境一变就破裂</td><td>在患难中仍存留(约16:33)</td></tr>
+    <tr><td>终点</td><td>末日的惊惶(帖前5:3)</td><td>永远的安息(来4:9)</td></tr>
+  </table></div>
+  <div class="key">基督为何带来纷争？因为人类本已与神为敌；基督不肯用假平安掩盖这个事实。他先用刀把病显露出来，再用自己的十字架担当这病，最后把信他的人合成一群，归一个牧人(约10:16)。<b>刀是为了医治。</b></div>
+</section>
+
+<section id="church">
+  <h2><span class="n">IV</span>⛪ 甚至在教会中也是如此</h2>
+  <p class="lead">这是本讲最难也最需要的部分。为什么基督的教会里，也会有因基督而起的分别？</p>
+  <div class="grid g2">
+    <div class="glass">
+      <h3 style="margin-top:0">📍 经文的证据</h3>
+      <p>🔹 约7 的纷争发生在<b>圣殿、节期、约民</b>当中<br>🔹 太10 的使徒先被差到<b>以色列家</b>，后被<b>会堂</b>鞭打(10:17)<br>🔹 "从以色列生的，不都是以色列人"(罗9:6)<br>🔹 "他们从我们中间出去，但不是属我们的"(约壹2:19)<br>🔹 "在你们中间必有假师傅"(彼后2:1)<br>🔹 以弗所长老：从你们中间必有人起来说悖谬的话(徒20:30)</p>
+    </div>
+    <div class="glass">
+      <h3 style="margin-top:0">🌾 改革宗的理解：有形教会是混合体</h3>
+      <p>有形的教会里有麦子也有稗子。威斯敏斯特信仰告白第25章第5节承认：天下最纯正的教会也难免有混杂与错误。比利时信条第29条也说，在真教会里有假冒为善的人混杂在善人中间，但他们<b>不属于</b>教会，虽然身体上在教会里（大意）。</p>
+      <p>所以，当基督的道在教会中被纯正宣讲时，会众里也会出现分别：有人更深地降服，有人被激怒而离开。</p>
+    </div>
+  </div>
+  <h3>🧭 在教会中怎样分辨？</h3>
+  <div class="tbl"><table>
+    <tr><th>问题</th><th>可能是基督带来的分别</th><th>多半是罪所造成的分裂</th></tr>
+    <tr><td>争议关乎什么？</td><td>基督的神性、因信称义、圣经权威、福音本身</td><td>敬拜时间、装修、人事、个人风格</td></tr>
+    <tr><td>谁在离开谁？</td><td>人离开纯正的道（约壹2:19）</td><td>人离开彼此，却都声称持守同样的道</td></tr>
+    <tr><td>程序如何？</td><td>按太18:15-17、按教会秩序与长老会议</td><td>私下结党、散布流言</td></tr>
+    <tr><td>心态如何？</td><td>流泪、恳求、盼望挽回(加6:1)</td><td>得意、轻蔑、标签化</td></tr>
+  </table></div>
+  <div class="hard">"基督使人纷争"绝不能成为分裂教会的借口。改革宗教会同样看重合一：比利时信条第28条要求信徒<b>不可离开真教会</b>，要加入它，顺服它的教导与惩戒。基督的刀切在真理与谬误之间，<b>不切在弟兄与弟兄之间</b>。如果我们因次要的事彼此相咬，那不是基督的刀，而是我们自己的牙（加5:15）。</div>
+  <div class="key">天国的钥匙（海德堡要理问答第83–85问）正是基督在教会中"分别"的工具：借着<b>传扬福音</b>和<b>教会惩戒</b>，天国向信的人开，向不信、不悔改的人关。这种分别的目标总是悔改与挽回。</div>
+</section>
+
+<section id="parallel">
+  <h2><span class="n">05</span>🔗 类似经文：同一个核心</h2>
+  <div class="tbl"><table>
+    <tr><th>经文</th><th>分别的内容</th><th>核心</th></tr>
+    <tr><td>路 12:49-53</td><td>"我来要把火丢在地上……一家五个人将要纷争"</td><td>平行经文，加上"火"与"洗"(十字架)</td></tr>
+    <tr><td>约 9:16</td><td>法利赛人"就起了纷争"(schisma)</td><td>瞎子得医治，基督的身份引发分裂</td></tr>
+    <tr><td>约 10:19-21</td><td>"犹太人为这些话又起了纷争"</td><td>好牧人的宣告</td></tr>
+    <tr><td>徒 14:4</td><td>"城里的众人就分了党"</td><td>使徒传道后的必然结果</td></tr>
+    <tr><td>徒 17:32-34</td><td>有人讥诮，有人要再听，有人信了</td><td>同一篇讲道，三种结局</td></tr>
+    <tr><td>林后 2:14-17</td><td>"活的香气"与"死的香气"</td><td>传道者只管忠心，结果在神</td></tr>
+    <tr><td>彼前 2:6-8</td><td>宝贵的房角石 / 绊脚的石头</td><td>同一块石头，两种关系</td></tr>
+    <tr><td>来 4:12</td><td>两刃的剑，辨明心中思念</td><td>刀＝神的道</td></tr>
+    <tr><td>启 3:15-16</td><td>老底嘉："不冷不热"</td><td>基督不接受中立</td></tr>
+  </table></div>
+</section>
+
+<section id="loop">
+  <h2><span class="n">06</span>♾️ 四重闭环</h2>
+  <figure class="fig">
+  <svg viewBox="0 0 900 380" role="img" aria-label="罪救赎感恩闭环">
+    <circle cx="450" cy="190" r="140" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="2" stroke-dasharray="6 8"/>
+    <g font-size="15" text-anchor="middle">
+      <circle cx="450" cy="60" r="54" fill="rgba(226,82,92,.25)" stroke="#e2525c" stroke-width="2"/>
+      <text x="450" y="55" fill="#ffc4c8" font-weight="700">① 罪与悲惨</text><text x="450" y="76" fill="#e8ecf3" font-size="12">生来与神为敌</text>
+      <circle cx="582" cy="255" r="54" fill="rgba(242,192,99,.25)" stroke="#f2c063" stroke-width="2"/>
+      <text x="582" y="250" fill="#ffe3a8" font-weight="700">② 救赎</text><text x="582" y="271" fill="#e8ecf3" font-size="12">基督被分开、被弃绝</text>
+      <circle cx="318" cy="255" r="54" fill="rgba(111,214,164,.22)" stroke="#6fd6a4" stroke-width="2"/>
+      <text x="318" y="250" fill="#c6f0db" font-weight="700">③ 感恩</text><text x="318" y="271" fill="#e8ecf3" font-size="12">认主·背十字架</text>
+      <text x="450" y="195" fill="#fff" font-size="18" font-weight="900">⚔️ 刀</text><text x="450" y="217" fill="#9aa6b8" font-size="12">海德堡 Q2</text>
+    </g>
+    <path d="M502,85 C560,120 590,160 588,196" fill="none" stroke="#f2c063" stroke-width="2.5" marker-end="url(#ah)"/>
+    <path d="M530,284 C490,312 410,312 370,284" fill="none" stroke="#f2c063" stroke-width="2.5" marker-end="url(#ah)"/>
+    <path d="M300,203 C300,150 350,100 396,78" fill="none" stroke="#f2c063" stroke-width="2.5" marker-end="url(#ah)"/>
+    <text x="30" y="40" fill="#9aa6b8" font-size="13">基督先被刀击打（亚13:7 "击打牧人"），</text>
+    <text x="30" y="60" fill="#9aa6b8" font-size="13">他的羊才不被分散到底</text>
+  </svg>
+  </figure>
+  <div class="grid g2">
+    <div class="glass"><div class="k">① 救赎历史闭环</div><p>创3:15 放下仇恨 → 该隐与亚伯 → 以色列中真假后裔 → 弥7:6 家人成仇 → 西面预言"刀要刺透你的心"(路2:35) → 太10 刀兵、约7 纷争 → <b>十字架：基督本人被"分开"，被父离弃</b>(太27:46) → 教会在逼迫中被炼净 → 末日绵羊山羊的最终分别 → 新天新地"不再有咒诅"(启22:3)，永远的合一。</p></div>
+    <div class="glass"><div class="k">② 圣约神学闭环</div><p>神的约总有<b>两面</b>：祝福与咒诅（申28；申30:15"生与福，死与祸"）。约的记号临到约民全体，但约的实质只临到真信的人（罗2:28-29）。太10:13 "平安临到配得的家，不配得的仍归你们"正是约的双重果效。基督作中保，亲自承受约的咒诅（加3:13），使属他的人只得约的祝福。</p></div>
+    <div class="glass"><div class="k">③ 圣经神学闭环</div><p>"刀"的主题：伊甸园东边发火焰的剑把人<b>挡在外面</b>(创3:24) → 出32:27 利未人佩刀分别属耶和华的 → 亚13:7 "刀剑哪，应当兴起，攻击我的牧人" → 基督被击打 → 神的道作圣灵的宝剑(弗6:17) → 基督口中的两刃剑(启19:15)。原本挡住人的刀，落在基督身上，<b>路就开了</b>。</p></div>
+    <div class="glass"><div class="k">④ 改革宗闭环：罪 · 救赎 · 感恩</div><p><b>罪</b>：人生来恨神；就算在约民中也拒绝基督（约7:44）。<br><b>救赎</b>：基督被弃绝、被击打，担当了我们本该承受的分离；圣灵有效呼召，使我们站在"认他"的一边。<br><b>感恩</b>：在人面前认主(太10:32)，爱他过于一切(10:37)，背起十字架(10:38)，同时竭力保守在真理上的合一(弗4:3)。</p></div>
+  </div>
+</section>
+
+<section id="angles">
+  <h2><span class="n">07</span>🧭 多重视角解读</h2>
+  <div class="grid g3">
+    <div class="glass"><div class="k">👑 三一神论</div><p><b>父</b>：麻雀不掉地(10:29)，掌管逼迫；<b>子</b>：差派、认人、要求效忠；<b>圣灵</b>：在受审时赐话语(10:20)，在人心中分别。</p></div>
+    <div class="glass"><div class="k">✝️ 基督论</div><p>约7 的问题"他是谁？"贯穿全书。尼西亚信经宣告他是"出于真神而为真神"；若他只是先知，就不配要求"爱我过于爱父母"。这句话本身就是神性的宣称。</p></div>
+    <div class="glass"><div class="k">⛪ 教会论</div><p>有形教会是混合体，真教会以三个标记辨认（比利时信条29）。基督的刀借着纯正传道与惩戒在教会中执行。</p></div>
+    <div class="glass"><div class="k">🏠 家庭视角</div><p>对第一世纪的犹太与中国信徒都是现实：信主可能意味着被逐出家门。第五诫要孝敬，但不能高过第一诫。在家中认主，同时更加孝敬。</p></div>
+    <div class="glass"><div class="k">🎙️ 传道视角</div><p>传道人不能为了不起纷争而软化福音（加1:10），也不能把自己的脾气当作"基督的刀"。忠心的标准是信息，不是掌声。</p></div>
+    <div class="glass"><div class="k">⏳ 末世论</div><p>10:23 "人子就到了"：初步应验于复活与主后70年审判耶路撒冷，最终应验于再来。今天的分别都朝向那一日。</p></div>
+  </div>
+</section>
+
+<section id="confess">
+  <h2><span class="n">08</span>🏛️ 信条见证</h2>
+  <p class="note">以下为要点概述，不作原文引用；正式引用请以 ccifellowship.org 所载原文为准（本页未逐字核对该站文字，因此不加引号）。</p>
+  <div class="tbl"><table>
+    <tr><th>信条</th><th>条目</th><th>要点</th><th>与本讲关系</th></tr>
+    <tr><td>海德堡要理问答</td><td>第1问</td><td>生与死唯一的安慰：属于信实的救主；不经天父许可，头发也不能掉一根</td><td>太10:29-31 麻雀与头发的直接回声</td></tr>
+    <tr><td>海德堡要理问答</td><td>第5问</td><td>人不能完全守律法，生来倾向于恨神和恨邻舍</td><td>纷争的根源在人心</td></tr>
+    <tr><td>海德堡要理问答</td><td>第32问</td><td>为何称为基督徒：借信成为基督的肢体，有分于他的膏抹，<b>以先知的职分认他的名</b>，以祭司献上自己，以君王与罪恶和魔鬼争战</td><td>太10:32 "在人面前认我"</td></tr>
+    <tr><td>海德堡要理问答</td><td>第54问</td><td>神的儿子借圣灵与道，从全人类中招聚、保护、保守一群蒙拣选的教会，在真信仰上合一</td><td>分别的目的是招聚</td></tr>
+    <tr><td>海德堡要理问答</td><td>第83–85问</td><td>天国的钥匙：传扬福音与教会惩戒，向信者开、向不信者关</td><td>教会中的"分别"</td></tr>
+    <tr><td>比利时信条</td><td>第27–29条</td><td>大公教会；人人有责加入真教会、不可离开；真假教会的标记与假冒为善者混杂</td><td>"甚至在教会中"</td></tr>
+    <tr><td>多特信经</td><td>第一项教义 第5–6条</td><td>不信的原因在人；信是神的恩赐，出于他永恒的旨意</td><td>同一篇道，两种结果</td></tr>
+    <tr><td>多特信经</td><td>第三、四项教义 第9–10条</td><td>蒙召不来者错不在福音与基督；来的人归功于神，不归于自己的自由意志</td><td>第二点"怎样"</td></tr>
+    <tr><td>多特信经</td><td>第五项教义</td><td>神保守信徒在试探与逼迫中坚忍到底</td><td>太10:22 "忍耐到底的必然得救"</td></tr>
+    <tr><td>威斯敏斯特信仰告白</td><td>第25章 第5节</td><td>最纯正的教会也有混杂与错误</td><td>教会是混合体</td></tr>
+    <tr><td>威斯敏斯特大要理问答</td><td>第104问等</td><td>第一诫要求以神为至爱，高过一切受造之物</td><td>太10:37 爱的排序</td></tr>
+  </table></div>
+  <div class="glass" style="margin-top:12px"><div class="k">📜 普世信经的回响</div><p>约7 争论的是基督的身份，正是信经要守护的核心。<b>使徒信经</b>认他是"神的独生子"、"在本丢彼拉多手下受难"；<b>尼西亚信经</b>认他"与父一体"；<b>亚他那修信经</b>开宗明义说，人若要得救，首先要持守大公信仰。三份信经本身就是教会在"基督是谁"这一纷争中的回答。</p></div>
+</section>
+
+<section id="apply">
+  <h2><span class="n">09</span>🙏 应用：五个"要"</h2>
+  <div class="grid g3">
+    <div class="glass" style="border-color:var(--gold)"><div class="k" style="color:var(--gold)">1 · 要预备</div><p>跟从基督会付代价。不要以为纷争表示你走错了路；"学生和先生一样"(10:25)。</p></div>
+    <div class="glass" style="border-color:var(--steel)"><div class="k" style="color:var(--steel)">2 · 要省察</div><p>我所经历的冲突，是因基督，还是因我的骄傲、急躁？先拔自己眼中的梁木。</p></div>
+    <div class="glass" style="border-color:var(--leaf)"><div class="k" style="color:var(--leaf)">3 · 要认主</div><p>在家中、职场、亲友聚会中，温柔而清楚地承认你是基督徒。不认主的平安是假平安。</p></div>
+    <div class="glass" style="border-color:var(--violet)"><div class="k" style="color:var(--violet)">4 · 要爱家人</div><p>不信的家人不是敌人要被打败，而是要被挽回。用更好的孝敬与忍耐，让他们看见基督。</p></div>
+    <div class="glass" style="border-color:var(--blood)"><div class="k" style="color:var(--blood)">5 · 要守合一</div><p>在教会中，为真理站立，为次要的事让步。用和平彼此联络，竭力保守圣灵所赐合而为一的心(弗4:3)。</p></div>
+    <div class="glass"><div class="k">🐑 诗篇 23 的安慰</div><p>被分别出来的羊并不孤单。"我虽然行过死荫的幽谷，也不怕遭害，因为你与我同在。"刀分开了我们与世界，却从未分开我们与牧人。</p></div>
+  </div>
+</section>
+
+<section id="qa">
+  <h2><span class="n">10</span>💬 讨论题与答案分析</h2>
+  <details><summary>Q1. 耶稣是"和平之君"(赛9:6)，又说"我来不是叫地上太平"(太10:34)，矛盾吗？</summary><div class="ans"><p>不矛盾。和平有两个层面：<b>与神的和平</b>（罗5:1）和<b>人与人之间的和平</b>。基督首先带来前者；而凡与神和好的人，必然与仍然敌对神的世界产生张力。<b>分析</b>：太10:34 说的是基督降临的后果，不是他的心意喜爱纷争。最终，当一切仇敌被征服，和平将完全（赛11:6-9；启21:4）。</p></div></details>
+  <details><summary>Q2. 约7 的众人引用圣经反对耶稣（7:42），说明了什么？</summary><div class="ans"><p>说明知道经文不等于认识基督。他们的引用是对的（弥5:2），结论却是错的，因为没有查明耶稣的出生。<b>分析</b>：约5:39-40"你们查考圣经……给我作见证的就是这经，然而你们不肯到我这里来得生命"。改革宗强调"唯独圣经"，同时强调圣灵的光照；没有圣灵，圣经也会被用来抵挡基督。</p></div></details>
+  <details><summary>Q3. 怎样分辨"因基督受逼迫"和"因自己的错被人厌恶"？</summary><div class="ans"><p>问三个问题：1）冲突的焦点是基督和他的道，还是我的态度和方式？2）我是否"驯良像鸽子"、"灵巧像蛇"(10:16)？3）我在冲突中有没有犯罪（苦毒、报复、轻蔑）？<b>分析</b>：彼前4:15-16 明确区分：因杀人、偷窃、好管闲事受苦，是羞耻；"为作基督徒受苦"，不要以为羞耻。</p></div></details>
+  <details><summary>Q4. "爱父母过于爱我的，不配作我的门徒"，这与第五诫冲突吗？</summary><div class="ans"><p>不冲突。第五诫在第一诫之下。基督要的是<b>爱的秩序</b>：爱神至上，然后在神里面爱父母。路14:26 的"恨"是闪族的比较说法，意思是"相比之下爱得少"。<b>分析</b>：真正爱基督的人，会更孝敬父母（以弗所书6:1"在主里"听从）。只有当父母要求否认基督时，才必须"顺从神，不顺从人"(徒5:29)。</p></div></details>
+  <details><summary>Q5. 如果纷争是基督带来的，为什么教会还要追求合一？</summary><div class="ans"><p>因为基督的刀切在<b>真理与谬误</b>之间，目的是在真理上把属他的人<b>合而为一</b>（约17:17,21）。<b>分析</b>：基督为合一祷告(约17)，保罗恳求"彼此相合"(林前1:10)。合一与分别不是两件对立的事，而是同一件事的两面：与真理合一，就与谬误分开。比利时信条第28条要求信徒加入并保守真教会的合一。</p></div></details>
+  <details><summary>Q6. 有人听同一篇道就信，有人却恨，这是传道人的责任吗？</summary><div class="ans"><p>传道人的责任是忠心、清楚、带着爱宣讲（提后4:2），并为听众祷告。结果在神手中（林前3:6-7）。<b>分析</b>：多特信经第三、四项教义第9–10条：人不来，错不在福音、不在基督；人来了，要归功于神。所以传道人既不因人信而骄傲，也不因人拒绝而丧胆，更不因怕纷争而修改信息。</p></div></details>
+  <details><summary>Q7. 在家中，信徒怎样面对不信的家人的反对？</summary><div class="ans"><p>1）坚定：不在信仰核心上妥协（不拜偶像、不否认基督）；2）温柔：彼前3:1-2"没有言语，也可以被感化"；3）更好地尽本分：孝顺、勤劳、诚实；4）恒切祷告；5）寻求教会群体的支持。<b>分析</b>：太10:13 的原则："平安仍归你们"，即使家人拒绝，我们的心仍可以有平安，并继续传递平安。</p></div></details>
+  <details><summary>Q8. "甚至在教会中"——稗子在教会里，我们是否要把他们找出来？</summary><div class="ans"><p>不是由个人来"清除"。主说"容这两样一齐长，等着收割"(太13:30)，因为人看不透人心。但教会也有基督所赐的<b>钥匙</b>：对公开不悔改的罪与异端，按太18 和教会秩序施行惩戒（海德堡 Q85）。<b>分析</b>：个人不做审判者；长老会议按正当程序执行；目标始终是挽回(林前5:5)。</p></div></details>
+  <details><summary>Q9. 基督自己经历了怎样的"纷争"？这对我们有什么安慰？</summary><div class="ans"><p>他被自己的家人认为"癫狂"(可3:21)，被自己的同乡厌弃（路4:29），被门徒离弃，最后在十字架上被父离弃(太27:46)。<b>分析</b>：海德堡要理问答第44问（大意）：基督在十字架上承受了地狱般的痛苦与被弃，使我在最大的试探中确知已从这些痛苦中蒙救赎。他被分开，所以我们永远不会与神分开（罗8:35-39）。</p></div></details>
+</section>
+
+<section id="ext">
+  <h2><span class="n">11</span>🧱 拓展：教会历史中的"刀"</h2>
+  <div class="tbl"><table>
+    <tr><th>时期</th><th>纷争的焦点</th><th>教会的回应</th></tr>
+    <tr><td>主后 325</td><td>亚流：子是受造者</td><td>尼西亚信经："与父一体"</td></tr>
+    <tr><td>主后 451</td><td>基督二性一位</td><td>迦克墩定义；亚他那修信经后半部</td></tr>
+    <tr><td>1517 起</td><td>因信称义、唯独圣经</td><td>宗教改革；海德堡要理问答(1563)</td></tr>
+    <tr><td>1561</td><td>尼德兰信徒被指为叛乱者</td><td>比利时信条；作者布雷斯1567年殉道</td></tr>
+    <tr><td>1618–19</td><td>恩典与自由意志（抗辩派五点）</td><td>多特信经</td></tr>
+    <tr><td>今日</td><td>圣经权威、性与婚姻、福音的独特性</td><td>持守信条，在真理与爱中站立</td></tr>
+  </table></div>
+  <p class="note">每一次，教会都没有主动寻求纷争；是有人改变了基督是谁、福音是什么，教会才不得不分辨。信条就是这些分辨留下的纪念碑。</p>
+</section>
+
+<section id="mind">
+  <h2><span class="n">12</span>🧠 思维导图</h2>
+  <figure class="fig">
+  <svg viewBox="0 0 1000 470" role="img" aria-label="讲章思维导图">
+    <g stroke-width="2" fill="none">
+      <path d="M500,235 C380,235 360,90 250,90" stroke="#8fb3d9"/>
+      <path d="M500,235 C380,235 360,235 250,235" stroke="#f2c063"/>
+      <path d="M500,235 C380,235 360,380 250,380" stroke="#e2525c"/>
+      <path d="M500,235 C620,235 640,90 750,90" stroke="#6fd6a4"/>
+      <path d="M500,235 C620,235 640,235 750,235" stroke="#a99bff"/>
+      <path d="M500,235 C620,235 640,380 750,380" stroke="#4fc1c9"/>
+    </g>
+    <rect x="400" y="198" width="200" height="74" rx="37" fill="rgba(242,192,99,.22)" stroke="#f2c063" stroke-width="2"/>
+    <text x="500" y="230" text-anchor="middle" fill="#fff" font-size="18" font-weight="900">基督使人纷争</text>
+    <text x="500" y="253" text-anchor="middle" fill="#9aa6b8" font-size="12">太10:5-39 · 约7:40-44</text>
+    <g font-size="13" fill="#e8ecf3">
+      <rect x="40" y="50" width="210" height="80" rx="12" fill="rgba(143,179,217,.14)" stroke="#8fb3d9"/>
+      <text x="55" y="74" fill="#cfe0f3" font-weight="700" font-size="15">一、什么纷争</text><text x="55" y="96">非武力·非性格·非次要</text><text x="55" y="116">为基督是谁·爱谁至上</text>
+      <rect x="40" y="195" width="210" height="80" rx="12" fill="rgba(242,192,99,.14)" stroke="#f2c063"/>
+      <text x="55" y="219" fill="#ffe3a8" font-weight="700" font-size="15">二、怎样纷争</text><text x="55" y="241">差派→传道→圣灵</text><text x="55" y="261">→要求效忠→分别</text>
+      <rect x="40" y="340" width="210" height="80" rx="12" fill="rgba(226,82,92,.14)" stroke="#e2525c"/>
+      <text x="55" y="364" fill="#ffc4c8" font-weight="700" font-size="15">三、为何纷争</text><text x="55" y="386">显明人心·人本为敌·炼净</text><text x="55" y="406">真合一·预演审判</text>
+      <rect x="750" y="50" width="210" height="80" rx="12" fill="rgba(111,214,164,.14)" stroke="#6fd6a4"/>
+      <text x="765" y="74" fill="#c6f0db" font-weight="700" font-size="15">甚至在教会中</text><text x="765" y="96">麦子稗子·约壹2:19</text><text x="765" y="116">钥匙：传道与惩戒</text>
+      <rect x="750" y="195" width="210" height="80" rx="12" fill="rgba(169,155,255,.14)" stroke="#a99bff"/>
+      <text x="765" y="219" fill="#ddd6ff" font-weight="700" font-size="15">闭环</text><text x="765" y="241">创3:15 → 十字架 → 末日</text><text x="765" y="261">罪 → 救赎 → 感恩</text>
+      <rect x="750" y="340" width="210" height="80" rx="12" fill="rgba(79,193,201,.14)" stroke="#4fc1c9"/>
+      <text x="765" y="364" fill="#bdeef1" font-weight="700" font-size="15">信条</text><text x="765" y="386">海德堡 1·5·32·54·83-85</text><text x="765" y="406">比利时 27-29 · 多特 一、三四</text>
+    </g>
+  </svg>
+  </figure>
+</section>
+
+<section id="cards">
+  <h2><span class="n">13</span>🃏 记忆卡（点击翻转）</h2>
+  <div class="grid g3">
+    <div class="flip" tabindex="0"><div class="in"><div class="f">太10:34 的"刀"指什么？<small>点击看答案</small></div><div class="b">不是武力，而是基督和他的道所带来的属灵分别（参来4:12 两刃的剑）。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">约7 的四种反应？<small>点击看答案</small></div><div class="b">"那先知"、"这是基督"、"基督岂是从加利利出来"、"要捉拿他"。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">太10:35-36 引用哪处经文？<small>点击看答案</small></div><div class="b">弥迦书 7:6：家里的人成为仇敌。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">基督带来纷争的四个途径？<small>点击看答案</small></div><div class="b">差派使者 → 宣讲他的道 → 圣灵在人心工作 → 要求完全效忠。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">为何带来纷争？五层<small>点击看答案</small></div><div class="b">显明人心；人本与神为敌；炼净百姓；建立真理上的合一；预演末日审判。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">"甚至在教会中"的经文？<small>点击看答案</small></div><div class="b">罗9:6；约壹2:19；林前11:19；徒20:30；太13:30。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">基督的刀切在哪里？<small>点击看答案</small></div><div class="b">切在真理与谬误、信与不信之间；不切在弟兄与弟兄之间（加5:15）。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">海德堡第32问与本讲？<small>点击看答案</small></div><div class="b">基督徒有分于基督的膏抹：以先知认他的名、祭司献上自己、君王与罪争战。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">不信的责任在谁？<small>点击看答案</small></div><div class="b">在人自己，不在福音、不在基督；信则全是神的恩赐（多特信经）。</div></div></div>
+  </div>
+</section>
+
+<section id="sum">
+  <h2><span class="n">14</span>✅ 总结列表</h2>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>主题</th><th>太 10</th><th>约 7</th><th>信条</th><th>一句话</th></tr>
+    <tr><td>1</td><td>🗡️ 什么纷争</td><td>v34-37</td><td>v40-43</td><td>海德堡 Q5</td><td>为基督是谁、爱谁至上而分</td></tr>
+    <tr><td>2</td><td>📣 怎样纷争</td><td>v5-7, 20, 32-39</td><td>v40 "听见这话"</td><td>多特 一、三四</td><td>道被宣讲，圣灵分别人心</td></tr>
+    <tr><td>3</td><td>🎯 为何纷争</td><td>v26-28</td><td>v44 敌意</td><td>海德堡 Q54</td><td>显明、炼净、招聚、预演审判</td></tr>
+    <tr><td>4</td><td>⛪ 教会中</td><td>v17 会堂</td><td>圣殿·节期</td><td>比利时 27-29</td><td>有形教会是混合体</td></tr>
+    <tr><td>5</td><td>✝️ 救赎</td><td>v38 十字架</td><td>v30 时候未到</td><td>海德堡 Q44</td><td>基督被分开，我们永不与神分开</td></tr>
+    <tr><td>6</td><td>🙌 感恩</td><td>v32 认我</td><td>v41 "这是基督"</td><td>海德堡 Q32</td><td>认主、背十字架、守合一</td></tr>
+  </table></div>
+  <div class="key">背下这一句就记住整篇：<b>基督是分界线，他的道是刀，圣灵是执刀的手；刀先落在牧人身上，再分开羊群与世界，最后把羊合成一群，归一个牧人。</b></div>
+</section>
+
+<div class="foot">
+  <p>参考：<a href="https://ccifellowship.org" target="_blank" rel="noopener">ccifellowship.org</a>（信经信条原文，请以此为准）· <a href="https://www.ccreformed.org" target="_blank" rel="noopener">洛杉矶改革宗·恩约教会</a> · <a href="https://www.reformedbeginner.net" target="_blank" rel="noopener">改革宗初学者</a> · <a href="https://canrc.org" target="_blank" rel="noopener">canrc.org</a> · <a href="https://www.urcna.org" target="_blank" rel="noopener">urcna.org</a> · <a href="https://heritagereformed.com" target="_blank" rel="noopener">heritagereformed.com</a> · <a href="https://www.prca.org" target="_blank" rel="noopener">prca.org</a> · <a href="https://opc.org" target="_blank" rel="noopener">opc.org</a> · <a href="https://canadianreformedseminary.ca" target="_blank" rel="noopener">CRTS</a> · <a href="https://www.wts.edu" target="_blank" rel="noopener">WTS</a></p>
+  <p>经文采用和合本。版本 v1 · 2026-10-31 · CCser</p>
+</div>
+</main>
+</div>
+
+<script>
+(function(){
+  var b=document.body, btn=document.getElementById('tocBtn');
+  function mobile(){return matchMedia('(max-width:900px)').matches}
+  btn.addEventListener('click',function(){ if(mobile()) b.classList.toggle('show-toc'); else b.classList.toggle('hide-toc'); });
+  document.querySelectorAll('#toc a').forEach(function(a){a.addEventListener('click',function(){ if(mobile()) b.classList.remove('show-toc'); });});
+  var links=[].slice.call(document.querySelectorAll('#toc a')), prog=document.getElementById('prog');
+  var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?h.scrollTop/max*100:0)+'%';
+    var cur=0; targets.forEach(function(t,i){ if(t && t.getBoundingClientRect().top<120) cur=i; });
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false'); document.getElementById(x.dataset.t).hidden=true;});
+    t.setAttribute('aria-selected','true'); document.getElementById(t.dataset.t).hidden=false;
+  });});
+  document.querySelectorAll('.flip').forEach(function(f){
+    f.addEventListener('click',function(){f.classList.toggle('on')});
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();f.classList.toggle('on')}});
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);} });},{rootMargin:'0px 0px -5% 0px'});
+    document.querySelectorAll('section .glass, section .fig').forEach(function(el){ if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv','pre'); io.observe(el);} });
+  }
+  /* 背景：一道金色光刃把画面分成冷蓝与殷红两半，随滚动缓慢移动 */
+  var c=document.getElementById('fx'), x=c.getContext('2d'), reduce=matchMedia('(prefers-reduced-motion:reduce)').matches, dust=[];
+  function size(){c.width=innerWidth;c.height=innerHeight;dust=[];for(var i=0;i<Math.min(120,innerWidth/8);i++)dust.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.2+.2,s:Math.random()*.3+.05});}
+  function draw(t){
+    var W=c.width,H=c.height,h=document.documentElement,k=Math.min(1,h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight));
+    x.fillStyle='#0d1117';x.fillRect(0,0,W,H);
+    var cx=W*(.35+.3*k);
+    var g1=x.createRadialGradient(cx-W*.3,H*.2,0,cx-W*.3,H*.2,W*.6);g1.addColorStop(0,'rgba(143,179,217,.16)');g1.addColorStop(1,'rgba(143,179,217,0)');x.fillStyle=g1;x.fillRect(0,0,W,H);
+    var g2=x.createRadialGradient(cx+W*.3,H*.8,0,cx+W*.3,H*.8,W*.6);g2.addColorStop(0,'rgba(226,82,92,.14)');g2.addColorStop(1,'rgba(226,82,92,0)');x.fillStyle=g2;x.fillRect(0,0,W,H);
+    var a=.10+.05*Math.sin(t/1200);
+    var g3=x.createLinearGradient(cx-40,0,cx+40,0);g3.addColorStop(0,'rgba(242,192,99,0)');g3.addColorStop(.5,'rgba(242,192,99,'+a+')');g3.addColorStop(1,'rgba(242,192,99,0)');
+    x.save();x.translate(cx,H/2);x.rotate(-.18);x.fillStyle=g3;x.fillRect(-40,-H,80,H*2);x.restore();
+    dust.forEach(function(d){d.y-=d.s;if(d.y<0)d.y=H;x.globalAlpha=.5;x.fillStyle=d.x<cx?'#8fb3d9':'#e2525c';x.beginPath();x.arc(d.x,d.y,d.r,0,6.28);x.fill();});
+    x.globalAlpha=1; if(!reduce) requestAnimationFrame(draw);
+  }
+  addEventListener('resize',size); size(); requestAnimationFrame(draw);
+  if(reduce) addEventListener('scroll',function(){draw(0)},{passive:true});
+})();
+</script>
+</body></html>
